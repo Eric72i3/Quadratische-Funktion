@@ -1,0 +1,58 @@
+public class QuadratischeFunktion {
+
+    public static void variablen(double a, double b, double c) {
+        if (a == 0) {
+            System.out.println("a darf nicht 0 sein, da dies keine quadratische Funktion ist.");
+            return;
+        }
+
+        System.out.println("Gegeben: f(x) = " + a + "x² + " + b + "x + " + c);
+
+        nullstelle(a, b, c);
+        dfwf(a, b, c);
+    }
+
+    public static void nullstelle(double a, double b, double c) {
+        double d = b * b - 4 * a * c;
+
+        if (d > 0) {
+            double x1 = (-b + Math.sqrt(d)) / (2 * a);
+            double x2 = (-b - Math.sqrt(d)) / (2 * a);
+            System.out.println("Nullstellen: x1 = " + x1 + ", x2 = " + x2);
+        } else if (d == 0) {
+            double x = -b / (2 * a);
+            System.out.println("Eine doppelte Nullstelle: x = " + x);
+        } else {
+            System.out.println("Keine reellen Nullstellen");
+        }
+    }
+
+    public static void dfwf(double a, double b, double c) {
+        System.out.println("Definitionsmenge: D = ℝ");
+
+        double xv = -b / (2 * a);
+        double yv = a * xv * xv + b * xv + c;
+
+        if (a > 0) {
+            System.out.println("Wertemenge: W = [" + yv + ", ∞)");
+        } else {
+            System.out.println("Wertemenge: W = (-∞, " + yv + "]");
+        }
+    }
+
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        System.out.print("Geben Sie a ein: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Geben Sie b ein: ");
+        double b = scanner.nextDouble();
+
+        System.out.print("Geben Sie c ein: ");
+        double c = scanner.nextDouble();
+
+        variablen(a, b, c);
+        scanner.close();
+    }
+}
