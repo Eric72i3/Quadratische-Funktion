@@ -96,6 +96,29 @@ public class Final_code {
     }
 
 
+    public static double extrema(double a, double b, double k, double c) {
+        
+        return double g = 2 * a;
+        return double y =a*k*k+b*k+c;
+
+        if (k != 0) {  
+            System.out.println("Notwendige Bedingung erfüllt für " + k);
+            
+            if (g != 0) {
+                if (g > 0) {
+                    System.out.println("Die Funktion hat einen Tiefpunkt a Punkt" + k+"/"+ y);
+                }
+                else if (g < 0) {
+                    System.out.println("Die Funktion hat einen Hochpunkt an der Stelle " + k+"/"+ y );
+                }
+            }
+        }
+        else {
+            System.out.println("Keine Extremstellen");
+        }
+    }
+
+
 
 
 
@@ -133,6 +156,9 @@ public class Final_code {
         trennung();
 
         //Final
+
+        double k = -b / (2 * a);
+        extrema(a, b,k,c);
     
 }}
 
