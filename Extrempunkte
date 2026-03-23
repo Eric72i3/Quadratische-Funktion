@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Extrempunkte {
+    
+    
+     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+    
+        System.out.println("a: ");
+        double a = sc.nextDouble(); 
+        
+        System.out.println("b: ");
+        double b = sc.nextDouble();
+        
+        System.out.println("c: ");
+        double c = sc.nextDouble();
+       
+        
+        
+       
+        double k = -b / (2 * a);
+        System.out.println("Nullstelle" + k);
+       
+       
+        extrema(a, b,k,c);
+       
+        sc.close(); 
+    }
+    
+    public static double extrema(double a, double b, double k, double c) {
+        
+   return double g = 2 * a;
+   return double y =a*k*k+b*k+c;
+         
+        
+        
+        
+        
+        if (k != 0) {  
+            System.out.println("Notwendige Bedingung erfüllt für " + k);
+            
+            if (g != 0) {
+                if (g > 0) {
+                    System.out.println("Die Funktion hat einen Tiefpunkt a Punkt" + k+"/"+ y);
+                }
+                else if (g < 0) {
+                    System.out.println("Die Funktion hat einen Hochpunkt an der Stelle " + k+"/"+ y );
+                }
+            }
+        }
+        else {
+            System.out.println("Keine Extremstellen");
+        }
+    }
+    
+   
+}
