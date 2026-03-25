@@ -23,7 +23,7 @@ public class Final_code {
     public static void lokal_steigung(double a, double b, double c, Scanner sc) {
         System.out.println("Lokal Steigung: bitte den zu berechnenden x-Wert eingeben:");
         double xls = sc.nextDouble();
-        System.out.println("m = " + bildeAbleitung(a, b, c, xls ));
+        System.out.println("m (" + xls + "/" + fx(xls, a, b, c) + ") = " + bildeAbleitung(a, b, c, xls));
     }
 
 
@@ -86,10 +86,10 @@ public class Final_code {
             
             if (g != 0) {
                 if (g > 0) {
-                    System.out.println("Die Funktion hat einen Tiefpunkt a Punkt" + k+"/"+ y);
+                    System.out.println("Die Funktion hat einen Tiefpunkt am Punkt " + k+"/"+ y);
                 }
                 else if (g < 0) {
-                    System.out.println("Die Funktion hat einen Hochpunkt an der Stelle " + k+"/"+ y );
+                    System.out.println("Die Funktion hat einen Hochpunkt am Punkt " + k+"/"+ y );
                 }
             }
         }
