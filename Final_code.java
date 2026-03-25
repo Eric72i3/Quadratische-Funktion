@@ -1,7 +1,7 @@
 import java.util.Scanner;
-public class Final_code {
+public class Final_code { //V1.0.0, 25.03.2026, Phase 1 final
 
-    public static double[] input(Scanner sc) {//final
+    public static double[] input(Scanner sc) {
         System.out.println("Funktionsgleichung: f(x) = ax^2 + bx + c");
         System.out.println("Bitte die Steigung a eingeben:");
         double a = sc.nextDouble();
@@ -10,20 +10,20 @@ public class Final_code {
         System.out.println("Bitte den Wert c eingeben:");
         double c = sc.nextDouble();
         return new double[]{a, b, c};
-    }//final
+    }
 
     public static double fx(double x, double a, double b, double c) {
         return a*Math.pow(x, 2)+b*x+c;
     }
 
-    public static double bildeAbleitung(double a, double b, double c, double x) {//final
+    public static double bildeAbleitung(double a, double b, double c, double x) {
         return 2*a*x+b;
-    }//final
+    }
 
     public static void lokal_steigung(double a, double b, double c, Scanner sc) {
         System.out.println("Lokal Steigung: bitte den zu berechnenden x-Wert eingeben:");
         double xls = sc.nextDouble();
-        System.out.println("m (" + xls + "/" + fx(xls, a, b, c) + ") = " + bildeAbleitung(a, b, c, xls));
+        System.out.println("m(" + xls + "/" + fx(xls, a, b, c) + ") = " + bildeAbleitung(a, b, c, xls));
     }
 
 
@@ -82,7 +82,7 @@ public class Final_code {
 
     public static void extrema(double a, double b, double k, double c, double g, double y) {
         if (k != 0) {  
-            System.out.println("Notwendige Bedingung erfüllt für " + k);
+            System.out.println("Extremstelle bei: " + k);
             
             if (g != 0) {
                 if (g > 0) {
@@ -102,6 +102,7 @@ public class Final_code {
 
     public static void bestimmemonotonie(double g) {
         if (g != 0) {
+            System.out.println("Monotonieverhalten:");
             if (g > 0) {
                 System.out.println("Zuerst streng monoton fallend, dann Streng monoton steigend");
             }
@@ -112,16 +113,16 @@ public class Final_code {
     }
 
 
-    public static void trennung(){//final
+    public static void trennung(){
         System.out.println("");
         System.out.println("================================");
         System.out.println("");
 
-    }//final
+    }
 
 
     public static void main(String[] args) {
-        trennung();//final
+        trennung();
         Scanner sc = new Scanner(System.in);
         double[] coeff = input(sc);
         double a = coeff[0];
@@ -154,7 +155,7 @@ public class Final_code {
 
         double k = -b / (2 * a);
         double g = 2 * a;
-        double y = a * k * k + b * k + c;
+        double y = fx(k, a, b, c);
         extrema(a, b, k, c, g, y);
 
         trennung();
