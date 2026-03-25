@@ -1,23 +1,7 @@
 import java.util.Scanner;
 public class Final_code {
-    public static class Werte {//final
-        private final Double a;
-        private final Double b;
-        private final Double c;
-        public Werte(Double a, Double b, Double c) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        }
-        public Double a() {
-            return a;}
-        public Double b() {
-            return b;}
-        public Double c() {
-            return c;}
-    }//final
 
-    public static Werte input(Scanner sc) {//final
+    public static double[] input(Scanner sc) {//final
         System.out.println("Funktionsgleichung: f(x) = ax^2 + bx + c");
         System.out.println("Bitte die Steigung a eingeben:");
         double a = sc.nextDouble();
@@ -25,20 +9,20 @@ public class Final_code {
         double b = sc.nextDouble();
         System.out.println("Bitte den Wert c eingeben:");
         double c = sc.nextDouble();
-        return new Werte(a, b, c);
+        return new double[]{a, b, c};
     }//final
 
-    public static Double fx(Double x, Double a, Double b, Double c) {
+    public static double fx(double x, double a, double b, double c) {
         return a*Math.pow(x, 2)+b*x+c;
     }
 
-    public static Double bildeAbleitung(Double a, Double b, Double c, Double x) {//final
+    public static double bildeAbleitung(double a, double b, double c, double x) {//final
         return 2*a*x+b;
     }//final
 
-    public static void lokal_steigung(Double a, Double b, Double c, Scanner sc) {
+    public static void lokal_steigung(double a, double b, double c, Scanner sc) {
         System.out.println("Lokal Steigung: bitte den zu berechnenden x-Wert eingeben:");
-        Double xls = sc.nextDouble();
+        double xls = sc.nextDouble();
         System.out.println("m = " + bildeAbleitung(a, b, c, xls ));
     }
 
@@ -96,10 +80,9 @@ public class Final_code {
     }
 
 
-    public static double extrema(double a, double b, double k, double c) {
+    public static void extrema(double a, double b, double k, double c, double g, double y) {
         
-        return double g = 2 * a;
-        return double y =a*k*k+b*k+c;
+
 
         if (k != 0) {  
             System.out.println("Notwendige Bedingung erfüllt für " + k);
@@ -129,18 +112,21 @@ public class Final_code {
     public static void main(String[] args) {
         trennung();//final
         Scanner sc = new Scanner(System.in);
-        Werte w = input(sc);
-        Double a = w.a();
-        Double b = w.b();
-        Double c = w.c();
+        double[] coeff = input(sc);
+        double a = coeff[0];
+        double b = coeff[1];
+        double c = coeff[2];
+
         trennung();
+
         System.out.println("Y - Achsenabschnitt:");
         System.out.println(fx(0.0, a, b, c));
+
         trennung();
+
         lokal_steigung(a, b, c, sc);
-        trennung();
         
-        //final
+        trennung();
 
         double[] ableitung = bildeErsteAbleitung(a, b);
         double ableitungA = ableitung[0];
@@ -148,17 +134,21 @@ public class Final_code {
         System.out.println("Erste Ableitung: f'(x) = " + ableitungA + "x + " + ableitungB);
         double zweiteAbleitung = bildeZweiteAbleitung(a);
         System.out.println("Zweite Ableitung: f''(x) = " + zweiteAbleitung);
-        trennung();
 
-        //Final
+        trennung();
 
         variablen(a, b, c);
+
         trennung();
 
-        //Final
-
         double k = -b / (2 * a);
-        extrema(a, b,k,c);
+        double g = 2 * a;
+        double y = a * k * k + b * k + c;
+        extrema(a, b, k, c, g, y);
+
+        trennung();
+
+        sc.close();
     
 }}
 
