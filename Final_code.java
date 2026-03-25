@@ -81,9 +81,6 @@ public class Final_code {
 
 
     public static void extrema(double a, double b, double k, double c, double g, double y) {
-        
-
-
         if (k != 0) {  
             System.out.println("Notwendige Bedingung erfüllt für " + k);
             
@@ -103,11 +100,25 @@ public class Final_code {
 
 
 
+    public static void bestimmemonotonie(double g) {
+        if (g != 0) {
+            if (g > 0) {
+                System.out.println("Zuerst streng monoton fallend, dann Streng monoton steigend");
+            }
+            else if (g < 0) {
+                System.out.println("Zuerst streng monoton steigend, dann Streng monoton fallend");
+            }
+        }
+    }
 
 
     public static void trennung(){//final
+        System.out.println("");
         System.out.println("================================");
+        System.out.println("");
+
     }//final
+
 
     public static void main(String[] args) {
         trennung();//final
@@ -145,6 +156,10 @@ public class Final_code {
         double g = 2 * a;
         double y = a * k * k + b * k + c;
         extrema(a, b, k, c, g, y);
+
+        trennung();
+
+        bestimmemonotonie(g);
 
         trennung();
 
